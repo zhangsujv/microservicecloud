@@ -1,0 +1,26 @@
+server:
+  port: 9527
+
+spring:
+  application:
+    name: microservicecloud-zuul-gateway
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://eureka7001.com:7001/eureka
+  instance:
+    instance-id: gateway-9527.com
+    prefer-ip-address: true
+info:
+  app.name: atsujv.gateway
+  company.name: www.atsujv
+  build.artifatId: microservicecloud-zuul-gateway-9527
+  build.version: 1.0-SNAPSHOT
+
+zuul:
+  routes:
+    mydept.serviceId: microservicecloud-dept
+    mydept.path: /mydept/**
+  ignored-services: microservicecloud-dept
+  prefix: /atsujv
